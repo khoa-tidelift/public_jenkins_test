@@ -19,7 +19,7 @@ pipeline {
 // Download the Tidelift CLI and make it executable
         stage('Downloading Tidelift CLI') {
             steps {
-                  sh 'curl -s -o ./tidelift https://download.tidelift.com/cli/tidelift'
+                  sh 'curl -s -o ./tidelift https://download.tidelift.com/cli/tidelift_darwin'
                   sh 'chmod +x ./tidelift'
             }
         }
