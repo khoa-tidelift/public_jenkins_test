@@ -8,7 +8,7 @@ pipeline {
 // configuration in Jenkins or from local metadata stored in the repository being checked out. Test.
         TIDELIFT_PROJECT_NAME = 'Test123'
         TIDELIFT_ORGANIZATION = 'team/khoa-tidelift'
-        TIDELIFT_CATALOG = 'khoa-tidelift catalog'
+        TIDELIFT_CATALOG = 'khoa-cat'
     }
     stages {
         stage('Howdy') {
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Running Tidelift Alignment') {
             steps {
-              withEnv(['TIDELIFT_API_KEY=${tidelift-org-key}']){
+              withEnv(['TIDELIFT_API_KEY=${tidelift-project-key}']){
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                       sh "./tidelift alignment save --wait --project ${TIDELIFT_PROJECT_NAME} --organization ${TIDELIFT_ORGANIZATION} --catalog ${TIDELIFT_CATALOG}"
                  }
