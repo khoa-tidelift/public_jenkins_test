@@ -27,7 +27,7 @@ pipeline {
             steps {
               withEnv(['TIDELIFT_API_KEY=${TIDELIFT_ORG_API_KEY}']){
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                      sh "./tidelift alignment save --wait --debug --project ${TIDELIFT_PROJECT_NAME} --organization ${TIDELIFT_ORGANIZATION}"
+                      sh "./tidelift alignment save --wait --debug --project ${TIDELIFT_PROJECT_NAME} --organization ${TIDELIFT_ORGANIZATION} --catalog ${TIDELIFT_CATALOG}"
                  }
               }
             }
